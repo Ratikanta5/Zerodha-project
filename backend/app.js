@@ -4,9 +4,14 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
 const Holding = require('./model/HoldingsModel');
 const Position = require('./model/PositionsModel');
 const Order = require('./model/OrderModel');
+
+
 
 
 
@@ -26,6 +31,14 @@ main()
 async function main(){
     await mongoose.connect(db_url);
 }
+
+
+
+//middleware
+
+app.use(cors()); //for security connection
+app.use(bodyParser.json()); //for json data parsing
+
 
 
 
@@ -197,7 +210,26 @@ async function main(){
 // })
 
 
+app.get('/allHoldings',async(req,res)=>{
+    try{
+        const allHoldings = await Holding.find({});
+        res.json(allHoldings)
+    }
+    catch(err){
+        console.log(err);
+    }
+})
 
+
+app.get('/allPositions',async(req,res)=>{
+    try{
+        const allPositions = await Position.find({});
+        res.json(allPositions)
+    }
+    catch(err){
+        console.log(err);
+    }
+})
 
 
 
