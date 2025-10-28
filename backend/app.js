@@ -5,6 +5,8 @@ const app = express();
 const mongoose = require('mongoose');
 
 const Holding = require('./model/HoldingsModel');
+const Position = require('./model/PositionsModel');
+const Order = require('./model/OrderModel');
 
 
 
@@ -146,6 +148,45 @@ async function main(){
 
 
 // const newHolding = await Holding.insertMany(holdings);
+// res.send("done")
+//   }
+
+//   catch(err){
+//     console.log(err);
+//   }
+
+// })
+
+
+//for positions
+
+// app.get("/addpositions",async(req,res) =>{
+//   try{
+//     const positions = [
+//   {
+//     product: "CNC",
+//     name: "EVEREADY",
+//     qty: 2,
+//     avg: 316.27,
+//     price: 312.35,
+//     net: "+0.58%",
+//     day: "-1.24%",
+//     isLoss: true,
+//   },
+//   {
+//     product: "CNC",
+//     name: "JUBLFOOD",
+//     qty: 1,
+//     avg: 3124.75,
+//     price: 3082.65,
+//     net: "+10.04%",
+//     day: "-1.35%",
+//     isLoss: true,
+//   },
+// ];
+
+
+// const newPositions = await Position.insertMany(positions);
 // res.send("done")
 //   }
 
